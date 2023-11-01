@@ -9,8 +9,18 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
-                <li class="nav-item"><a href="#" class="nav-link">Signup</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Login</a></li>
+                @auth
+                    <li class="nav-item"><a href="{{ route('profile') }}" class="nav-link">Profile</a></li>
+                    <li class="nav-item">
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                @else
+                    <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Signup</a></li>
+                    <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                @endauth
             </ul>
         </div>
     </nav>
