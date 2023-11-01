@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,12 +21,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', [UserController::class, 'showRegister'])->name('register');
-Route::post('/register', [UserController::class, 'register']);
-Route::get('/login', [UserController::class, 'showLogin'])->name('login');
-Route::post('/login', [UserController::class, 'login']);
+Route::get('/register', [RegisterController::class, 'showRegister'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware('auth')->group(function() {
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
-    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });
