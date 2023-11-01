@@ -12,9 +12,9 @@
                 @auth
                     <li class="nav-item"><a href="{{ route('profile') }}" class="nav-link">Profile</a></li>
                     <li class="nav-item">
-                        <form class="nav-link" action="{{ route('logout') }}" method="POST">
+                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
-                            <input type="submit" value="Logout">
                         </form>
                     </li>
                 @else

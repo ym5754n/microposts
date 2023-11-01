@@ -1,15 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>登録画面</h1>
-    <form action="" method="post">
-        @csrf
-        <label for="name">名前</label>
-        <input type="text" name="name" id="name">
-        <label for="email">メールアドレス</label>
-        <input type="email" name="email" id="email">
-        <label for="password">パスワード</label>
-        <input type="password" name="password" id="password">
-        <button type="submit">送信</button>
-</form>
+    <h1>Sign Up</h1>
+    <div class="row">
+        <div class="col-6">
+            <form action="" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input class="form-control" name="name" type="text" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Mail:</label>
+                    <input class="form-control" name="email" type="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" name="password" type="password" id="password">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Send">
+            </form>
+        </div>
+    </div>
 @endsection
