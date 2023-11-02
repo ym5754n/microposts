@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
     protected $redirectTo = '/';
 
