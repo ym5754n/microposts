@@ -27,6 +27,7 @@ Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::middleware('auth')->group(function() {
-    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::get('/users', [UserController::class, 'index'])->name('users.index');
+    Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 });

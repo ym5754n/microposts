@@ -10,7 +10,8 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 @auth
-                    <li class="nav-item"><a href="{{ route('profile') }}" class="nav-link">Profile</a></li>
+                    <li class="nav-item"><a href="{{ route('users.show', ['id' => Auth::id()]) }}" class="nav-link">Profile</a></li>
+                    <li class="nav-item"><a href="{{ route('users.index') }}" class="nav-link">Users</a></li>
                     <li class="nav-item">
                         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
