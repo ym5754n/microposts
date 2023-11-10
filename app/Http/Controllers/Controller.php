@@ -9,4 +9,12 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
+
+    public function counts($user) {
+        $countMicroposts = $user->microposts()->count();
+
+        return [
+            'count_microposts' => $countMicroposts,
+        ];
+    }
 }

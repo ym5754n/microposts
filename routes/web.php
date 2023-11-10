@@ -29,4 +29,6 @@ Route::middleware('auth')->group(function() {
     Route::get('/users', [UsersController::class, 'index'])->name('users.index');
     Route::get('/users/{id}', [UsersController::class, 'show'])->name('users.show');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    Route::delete('microposts/{id}', [MicropostsController::class, 'destroy'])->name('microposts.destroy');
+    Route::post('microposts', [MicropostsController::class, 'store'])->name('microposts.store');
 });
