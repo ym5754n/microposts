@@ -4,11 +4,7 @@
     @auth
         <div class="row">
             <aside class="col-sm-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">{{ Auth::user()->name }}</h3>
-                    </div>
-                </div>
+                @include('users.card', ['user' => Auth::user()])
             </aside>
             <div class="col-sm-8">
                 @if (Auth::id() == $user->id)
@@ -16,7 +12,7 @@
                         @csrf
                         <div class="form-group">
                             <input type="textarea" class="form-control" name="content" rows="2" value="{{ old('content') }}">
-                            <input type="submit" class="btn btn-primary btn-block">
+                            <input type="submit" class="btn btn-primary btn-block" value="Post">
                         </div>
                     </form>
                 @endif
