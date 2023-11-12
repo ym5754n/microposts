@@ -12,9 +12,13 @@ class Controller extends BaseController
 
     public function counts($user) {
         $countMicroposts = $user->microposts()->count();
+        $countFollowings = $user->followings()->count();
+        $countFollowers = $user->followers()->count();
 
         return [
             'count_microposts' => $countMicroposts,
+            'count_followings' => $countFollowings,
+            'count_followers' => $countFollowers,
         ];
     }
 }
