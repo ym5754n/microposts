@@ -11,13 +11,7 @@
                 <div>
                     <div class="d-flex justfy-content-between">
                         @include('buttons.favoriteButton')
-                        @if (Auth::id() == $micropost->user_id)
-                            <form action="{{ route('microposts.destroy', ['id' => $micropost->id]) }}" method="POST">
-                                @method('delete')
-                                @csrf
-                                <input type="submit" class="btn btn-danger btn-sm" value="Delete">
-                            </form>
-                        @endif
+                        @include('buttons.deleteButton')
                     </div>
                 </div>
             </div>

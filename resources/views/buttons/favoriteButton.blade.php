@@ -7,6 +7,6 @@
 @else
     <form action="{{ route('favorite.favorite', ['id' => $micropost->id]) }}" method="POST">
         @csrf
-        <input type="submit" class="btn btn-light btn-sm" value="Favorite">
+        <input type="submit" class="btn btn-light btn-sm mr-1" value="Favorite">
     </form>
 @endif
