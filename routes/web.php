@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\MicropostsController;
 use App\Http\Controllers\UserFollowController;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,12 @@ Route::middleware('auth')->group(function() {
         Route::delete('unfollow', [UserFollowController::class, 'destroy'])->name('userFollow.unfollow');
         Route::get('followings', [UsersController::class, 'followings'])->name('users.followings');
         Route::get('followers', [UsersController::class, 'followers'])->name('users.followers');
+        Route::get('favorites', [UsersController::class, 'favorites'])->name('users.favorites');
+    });
+
+    Route::group(['prefix' => 'microposts/{id}'], function() {
+        Route::post('favorite', [FavoriteController:: class, 'favorite'])->name('favorite.favorite');
+        ROute::delete('unfavorite', [FavoriteController::class, 'unfavorite'])->name('favorite.unfavorite');
     });
 
     Route::delete('microposts/{id}', [MicropostsController::class, 'destroy'])->name('microposts.destroy');

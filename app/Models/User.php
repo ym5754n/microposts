@@ -55,6 +55,10 @@ class User extends Authenticatable
         return $this->belongsToMany(User::class, 'user_follow', 'follow_id', 'user_id')->withTimeStamps();
     }
 
+    public function favorites() {
+        return $this->belongsToMany(Micropost::class, 'favorites', 'user_id', 'micropost_id')->withTimeStamps();
+    }
+
     public function follow($userId) {
         $exist = $this->isFollowing($userId);
         $itsMe = $this->id == $userId;
@@ -88,5 +92,31 @@ class User extends Authenticatable
         $followUserIds[] = $this->id;
 
         return Micropost::whereIn('user_id', $followUserIds);
+    }
+
+    public function favorite($micropostId) {
+        $exist = $this->isFavorite($micropostId);
+
+        if ($exist) {
+            return false;
+        } else {
+            $this->favorites()->attach($micropostId);
+            return true;
+        }
+    }
+
+    public function unfavorite($micropostId) {
+        $exist = $this->isFavorite($micropostId);
+
+        if ($exist) {
+            $this->favorites()->detach($micropostId);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function isFavorite($micropostId) {
+        return $this->favorites()->where('micropost_id', $micropostId)->exists();
     }
 }

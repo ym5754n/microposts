@@ -9,13 +9,17 @@
                     <p class="mb-0">{!! nl2br(e($micropost->content)) !!}</p>
                 </div>
                 <div>
-                    @if (Auth::id() == $micropost->user_id)
-                        <form action="{{ route('microposts.destroy', ['id' => $micropost->id]) }}" method="POST">
-                            @method('delete')
-                            @csrf
-                            <input type="submit" class="btn btn-danger btn-sm" value="Delete">
-                        </form>
-                    @endif
+                    <div class="d-flex justfy-content-between">
+                        @include('buttons.favoriteButton')
+                        @if (Auth::id() == $micropost->user_id)
+                            <form action="{{ route('microposts.destroy', ['id' => $micropost->id]) }}" method="POST">
+                                @method('delete')
+                                @csrf
+                                <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                            </form>
+                        @endif
+                    </div>
+                </div>
             </div>
         </li>
     @endforeach

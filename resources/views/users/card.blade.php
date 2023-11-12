@@ -3,4 +3,4 @@
         <h3 class="card-title">{{ $user->name }}</h3>
     </div>
 </div>
-@include('userFollow.followButton', ['user' => $user])
+@include('buttons.followButton', ['user' => $user])
