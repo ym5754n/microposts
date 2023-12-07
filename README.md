@@ -2,7 +2,7 @@
 
 # microposts
 ## 概要
-- twitterライクなサービスです。
+- twitterライクなサービスです。 
 
 ## 機能
 - 会員登録
@@ -11,3 +11,11 @@
 - ポストのお気に入り登録･解除
 - ユーザーのフォロー･アンフォロー
 - ユーザーのプロフィール表示
+
+## アカウント
+### アカウント1
+- mail: user1@example.com
+- pass: password
+### アカウント2
+- mail: user1@example.com
+- pass: password
