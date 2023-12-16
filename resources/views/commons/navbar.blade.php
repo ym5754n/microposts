@@ -5,26 +5,26 @@
     <ul class="flex self-center">
         @auth
             <li class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2 p-1">
-                <a href="{{ route('users.show', ['id' => Auth::id()]) }}" class="nav-link">Profile</a>
+                <a href="{{ route('users.show', ['id' => Auth::id()]) }}">MyProfile</a>
+            </li>
+            <li class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2 p-1">
+                <a href="{{ route('users.favorites', ['id' => Auth::id()]) }}">MyFavorites</a>
             </li>
             <li class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2 p-1">
                 <a href="{{ route('users.index') }}" class="nav-link">Users</a>
             </li>
             <li class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2 p-1">
-                <a href="{{ route('users.favorites', ['id' => Auth::id()]) }}" class="nav-link">Favorites</a>
-            </li>
-            <li class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2 p-1">
-                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
+                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
             </li>
         @else
             <li class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2 p-1">
-                <a href="{{ route('login') }}" class="nav-link">Sign in</a>
+                <a href="{{ route('login') }}">Sign in</a>
             </li>
             <li class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2 p-1 border border-current rounded">
-                <a href="{{ route('register') }}" class="nav-link">Sign up</a>
+                <a href="{{ route('register') }}">Sign up</a>
             </li>
         @endauth
     </ul>
