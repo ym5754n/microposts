@@ -1,21 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Login</h1>
-    <div class="row">
-        <div class="col-6">
-            <form action="" method="POST">
-                @csrf
-                <div class="form-group">
-                    <label for="email">Mail:</label>
-                    <input class="form-control" name="email" type="email" id="email">
+    <div class="w-full lg:w-4/12 px-4 mx-auto pt-4">
+        <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+            <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+                <div class="text-center my-5">
+                    <h6 class="text-blueGray-500 font-bold">
+                        Sign in
+                    </h6>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input class="form-control" name="password" type="password" id="password">
-                </div>
-                <input class="btn btn-primary" type="submit" value="Login">
-            </form>
+                <form action="" method="POST">
+                    @csrf
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="grid-password">Email</label>
+                        <input type="email" placeholder="Email" name="email" required
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                    </div>
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" for="grid-password">Password</label>
+                        <input type="password" placeholder="Password" name="password" required
+                            class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                    </div>
+                    <div class="text-center mt-6">
+                        <button type="submit" class="bg-blueGray-800 text-blueGray-500 active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150">
+                            Sign In 
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection

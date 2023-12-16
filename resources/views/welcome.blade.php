@@ -22,10 +22,8 @@
             </div>
         </div>
     @else
-        <div class="center jumbotron">
-            <div class="text-center">
-                <h1>Welcome to the Microposts</h1>
-            </div>
+        <div class="grid h-screen items-center justify-center">
+            <h1>Welcome to the Microposts!</h1>
         </div>
     @endauth
 @endsection

@@ -31,7 +31,7 @@ class LoginController extends Controller
             return redirect()->intended();
         }
 
-        return back();
+        return back()->withInput()->withErrors('Wrong mailaddress or password.');
     }
 
     public function logout(Request $request) {
