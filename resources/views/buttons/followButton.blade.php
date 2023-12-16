@@ -3,12 +3,16 @@
         <form action="{{ route('userFollow.unfollow', ['id' => $user->id]) }}" method="POST">
             @method('delete')
             @csrf
-            <input type="submit" class="px-2 py-1 border border-current rounded text-sm text-slate-100 bg-slate-300" value="Unfollow">
+            <button type="submit" class="btn btn-light btn-sm mr-1 text-red-600">
+                <i class="fas fa-user-minus"></i>
+            </button>
         </form>
     @else
         <form action="{{ route('userFollow.follow', ['id' => $user->id]) }}" method="POST">
             @csrf
-            <input type="submit" class="px-2 py-1 border border-current rounded text-sm text-slate-100 bg-slate-800" value="Follow">
+            <button type="submit" class="btn btn-light btn-sm mr-1 text-blue-600">
+                <i class="fas fa-user-plus"></i>
+            </button>
         </form>
     @endif
 @endif
