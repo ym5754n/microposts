@@ -20,6 +20,8 @@ class MicropostsController extends Controller
             ];
         }
 
+        $data += $this->counts($user);
+
         return view('welcome', $data);
     }
 
