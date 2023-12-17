@@ -2,17 +2,25 @@
 
 @section('content')
     @auth
-        <div class="row">
-            <aside class="col-sm-4">
+        <div class="grid grid-cols-12 grid-rows-1 gap-4 mx-4 max-h-full">
+            <aside class="col-span-4">
                 @include('users.card', ['user' => Auth::user()])
             </aside>
-            <div class="col-sm-8">
+            <div class="col-span-8 grid grid-rows-[150px_calc(100%-150px)]">
                 @if (Auth::id() == $user->id)
-                    <form action="{{ route('microposts.store') }}" method="POST">
+                    <form action="{{ route('microposts.store') }}" method="POST"
+                        class="m-1 bg-slate-100 rounded-lg">
                         @csrf
-                        <div class="form-group">
-                            <input type="textarea" class="form-control" name="content" rows="2" value="{{ old('content') }}">
-                            <input type="submit" class="btn btn-primary btn-block" value="Post">
+                        <div class="border border-slate-200 rounded-lg">
+                            <div class="px-2 pt-1 bg-white rounded-t-lg">
+                                <label for="content" class="sr-only">Your comment</label>
+                                <textarea id="content" name="content" rows="3" class="resize-none w-full px-0 placeholder-slate-400 text-slate-600 bg-white border-0 focus:ring-0" placeholder="Write a post..." required></textarea>
+                            </div>
+                            <div class="flex items-center justify-end px-2 py-2 border-t">
+                                <button type="submit" class="inline-flex items-right py-1.5 px-4 text-sm font-medium text-center text-slate-100 bg-slate-800 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800">
+                                    Post
+                                </button>
+                            </div>
                         </div>
                     </form>
                 @endif
@@ -22,10 +30,8 @@
             </div>
         </div>
     @else
-        <div class="center jumbotron">
-            <div class="text-center">
-                <h1>Welcome to the Microposts</h1>
-            </div>
+        <div class="grid h-full items-center justify-center">
+            <h1>Welcome to the Microposts!</h1>
         </div>
     @endauth
 @endsection
