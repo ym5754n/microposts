@@ -18,6 +18,16 @@ Amazon Lighsail上で公開しています。学習用に公開しているサ�
   - 他のユーザのフォロー/アンフォロー
 - フェイバリット機能
   - 投稿されたテキストのフェイバリット/アンフェイバリット
+ 
+## Environment
+- Docker Desktop (4.24.0)
+- Laravel Sail (1.18)
+  - PHP (8.1)
+  - Laravel (10.10)
+  - MySQL (8.0)
+- vite (4.0.0)
+- TailwindCSS (3.3.6)
+- Amazon LightSail(LAMP)
 
 ## Usage
 ※事前に[こちら](https://docs.docker.jp/get-docker.html)を参照してDockerを導入してください。
@@ -62,6 +72,3 @@ $ npm run dev
 ## Author
 - 作成者: ym5754n
 - E-mail: ym5754n@gmail.com
-
-## License
-This project is licensed under the MIT License, see the LICENSE.txt file for details
